@@ -1,6 +1,7 @@
 # Sticky Pen
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4b1d16ae-84c3-4960-ae6d-40ed0616b3e0/deploy-status)](https://app.netlify.com/sites/sticky-pen/deploys)
 
 ## Development server
 
