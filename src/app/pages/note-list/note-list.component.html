@@ -11,8 +11,8 @@
     </div>
 
 
-    <div class="notes-list">
-        <app-note-card *ngFor="let note of notes; index as i" [link]="i" [title]="note.title" [bodyText]="note.body" (delete)="deleteNote(i)">
+    <div class="notes-list" [@listAnim]>
+        <app-note-card [@itemAnim] *ngFor="let note of notes; index as i" [link]="i" [title]="note.title" [bodyText]="note.body" (delete)="deleteNote(i)">
         </app-note-card>
 
     </div>

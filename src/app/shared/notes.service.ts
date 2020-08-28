@@ -4,11 +4,24 @@ import { Note } from './note.model';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class NotesService {
 
   notes: Note[] = new Array<Note>();
-  constructor() { }
+  data: Note[] = [
+    {
+      title: "Test 1", body: "Purpose"
+    }, {
+      title: "Test 2", body: "Purpose"
+    }, {
+      title: "Test 3", body: "Purpose"
+    }
+  ]
 
+  constructor() {
+    this.notes = this.data
+  }
 
   get(id: number): Note {
     return this.notes[id];
