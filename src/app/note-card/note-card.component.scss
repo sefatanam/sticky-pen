@@ -22,6 +22,7 @@
     padding: 5px;
 
     .note-card-title {
+      margin: 10px;
       font-size: 22px;
       font-weight: bold;
       color: $purple;
@@ -32,6 +33,7 @@
       color: rgb(107, 107, 107);
       max-height: 80px;
       overflow: hidden;
+      margin: 10px;
       .fade-out-truncation {
         position: absolute;
         pointer-events: none;

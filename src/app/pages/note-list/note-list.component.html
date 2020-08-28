@@ -12,8 +12,11 @@
 
 
     <div class="notes-list">
-        <app-note-card [title]="'Testing'" [bodyText]="'This is body'"></app-note-card>
-        <app-note-card [title]="'Testing'" [bodyText]="'If you also append the is-static modifier, it removes the background, border, shadow, and horizontal padding, while maintaining the vertical spacing so you can easily align the input in any context, like a horizontal form.'"></app-note-card>
+        <app-note-card *ngFor="let note of notes; index as i" [link]="i" [title]="note.title" [bodyText]="note.body" (delete)="deleteNote(i)">
+        </app-note-card>
 
     </div>
+
+    <button class="button floating-add-button is-primary" routerLink="new">+ Add</button>
+
 </div>
