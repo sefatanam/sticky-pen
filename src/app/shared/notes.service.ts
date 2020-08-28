@@ -11,11 +11,11 @@ export class NotesService {
   notes: Note[] = new Array<Note>();
   data: Note[] = [
     {
-      title: "Test 1", body: "Purpose"
+      title: "Task 1", body: "not responsive yet"
     }, {
-      title: "Test 2", body: "Purpose"
+      title: "Task 2", body: "connect with node js"
     }, {
-      title: "Test 3", body: "Purpose"
+      title: "Task 3", body: "Convert to PWA with offline support"
     }
   ]
 
