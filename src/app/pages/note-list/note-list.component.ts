@@ -9,7 +9,7 @@ import { trigger, transition, style, animate, query, stagger } from '@angular/an
   styleUrls: ['./note-list.component.scss'],
   animations: [
     trigger('itemAnim', [
-      //Entry
+      // Entry
 
       transition('void=>*', [
         style({
@@ -22,7 +22,7 @@ import { trigger, transition, style, animate, query, stagger } from '@angular/an
           paddingLeft: 0,
           paddingBottom: 0,
         }),
-        //anim
+        // anim
 
         animate('50ms', style({
           height: '*',
@@ -44,7 +44,7 @@ import { trigger, transition, style, animate, query, stagger } from '@angular/an
           transform: 'scale(1.05)'
         })),
 
-        //bring back to normal size
+        // bring back to normal size
         animate(50, style({
           transform: 'scale(1)',
           opacity: 0.75
@@ -101,7 +101,7 @@ export class NoteListComponent implements OnInit {
 
 
   deleteNote(id: number) {
-    this.service.delete(id)
+    this.service.delete(id);
   }
 
   filter(query: string) {
@@ -111,17 +111,17 @@ export class NoteListComponent implements OnInit {
     terms = this.removeDuplicate(terms);
     // relevent result
     terms.forEach(term => {
-      let result: Note[] = this.releventNotes(term);
+      const result: Note[] = this.releventNotes(term);
       searchResult = [...searchResult, ...result];
-    })
+    });
 
-    let uniqueResult = this.removeDuplicate(searchResult);
+    const uniqueResult = this.removeDuplicate(searchResult);
     this.filteredNotes = uniqueResult;
   }
 
 
   removeDuplicate(arr: Array<any>): Array<any> {
-    let result: Set<any> = new Set<any>();
+    const result: Set<any> = new Set<any>();
     arr.forEach(e => result.add(e));
     return Array.from(result);
   }
@@ -129,7 +129,7 @@ export class NoteListComponent implements OnInit {
 
   releventNotes(query: any): Array<Note> {
     query = query.toLowerCase().trim();
-    let relevents = this.notes.filter(note => {
+    const relevents = this.notes.filter(note => {
       if (note.title && note.title.toLowerCase().includes(query)) {
         return true;
       }
@@ -138,7 +138,7 @@ export class NoteListComponent implements OnInit {
         return true;
       }
       return false;
-    })
+    });
     return relevents;
   }
 

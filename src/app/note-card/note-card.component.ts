@@ -13,8 +13,8 @@ export class NoteCardComponent implements OnInit {
   @Input('link') link: string;
   @Output('delete') deleteEvent: EventEmitter<void> = new EventEmitter<void>();
 
-  //@ViewChild('truncator') truncator: ElementRef<HTMLElement>;
-  //@ViewChild('body') body: ElementRef<HTMLElement>;
+  // @ViewChild('truncator') truncator: ElementRef<HTMLElement>;
+  // @ViewChild('body') body: ElementRef<HTMLElement>;
   @ViewChild('body', { static: true }) body: ElementRef<HTMLElement>;
   @ViewChild('truncator', { static: true }) truncator: ElementRef<HTMLElement>;
 
@@ -22,16 +22,16 @@ export class NoteCardComponent implements OnInit {
 
   ngOnInit() {
 
-    let style = window.getComputedStyle(this.body.nativeElement, null);
+    const style = window.getComputedStyle(this.body.nativeElement, null);
 
-    let viewableHeight = parseInt(style.getPropertyValue("height"), 10);
+    const viewableHeight = parseInt(style.getPropertyValue('height'), 10);
 
     if (this.body.nativeElement.scrollHeight > viewableHeight) {
-      //if there text overflow show fadeout trancator
-      this.renderer.setStyle(this.truncator.nativeElement, "display", 'block')
+      // if there text overflow show fadeout trancator
+      this.renderer.setStyle(this.truncator.nativeElement, 'display', 'block');
     } else {
       // hide trancator
-      this.renderer.setStyle(this.truncator.nativeElement, "display", 'none')
+      this.renderer.setStyle(this.truncator.nativeElement, 'display', 'none');
 
     }
   }

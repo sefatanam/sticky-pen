@@ -11,16 +11,16 @@ export class NotesService {
   notes: Note[] = new Array<Note>();
   data: Note[] = [
     {
-      title: "Task 1", body: "not responsive yet"
+      title: 'Task 1', body: 'not responsive yet'
     }, {
-      title: "Task 2", body: "connect with node js"
+      title: 'Task 2', body: 'connect with node js'
     }, {
-      title: "Task 3", body: "Convert to PWA with offline support"
+      title: 'Task 3', body: 'Convert to PWA with offline support'
     }
-  ]
+  ];
 
   constructor() {
-    this.notes = this.data
+    this.notes = this.data;
   }
 
   get(id: number): Note {
@@ -36,14 +36,14 @@ export class NotesService {
   }
 
   add(note: Note): number {
-    let length = this.notes.push(note);
-    let index = length - 1;
+    const length = this.notes.push(note);
+    const index = length - 1;
     return index;
   }
 
   update(id: number, title: string, body: string) {
 
-    let note = this.notes[id];
+    const note = this.notes[id];
     note.title = title;
     note.body = body;
   }
