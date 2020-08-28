@@ -90,15 +90,56 @@ import { trigger, transition, style, animate, query, stagger } from '@angular/an
 })
 export class NoteListComponent implements OnInit {
 
-  notes: Note[] = new Array<Note>();
+  private notes: Note[] = new Array<Note>();
+  public filteredNotes: Note[] = new Array<Note>();
   constructor(private service: NotesService) { }
 
   ngOnInit(): void {
     this.notes = this.service.getAll();
+    this.filteredNotes = this.notes;
   }
 
 
   deleteNote(id: number) {
     this.service.delete(id)
   }
+
+  filter(query: string) {
+    let searchResult: Note[] = new Array<Note>();
+    query = query.toLowerCase().trim();
+    let terms: string[] = query.split(' ');
+    terms = this.removeDuplicate(terms);
+    // relevent result
+    terms.forEach(term => {
+      let result: Note[] = this.releventNotes(term);
+      searchResult = [...searchResult, ...result];
+    })
+
+    let uniqueResult = this.removeDuplicate(searchResult);
+    this.filteredNotes = uniqueResult;
+  }
+
+
+  removeDuplicate(arr: Array<any>): Array<any> {
+    let result: Set<any> = new Set<any>();
+    arr.forEach(e => result.add(e));
+    return Array.from(result);
+  }
+
+
+  releventNotes(query: any): Array<Note> {
+    query = query.toLowerCase().trim();
+    let relevents = this.notes.filter(note => {
+      if (note.title && note.title.toLowerCase().includes(query)) {
+        return true;
+      }
+
+      if (note.title && note.body.toLowerCase().includes(query)) {
+        return true;
+      }
+      return false;
+    })
+    return relevents;
+  }
+
 }
