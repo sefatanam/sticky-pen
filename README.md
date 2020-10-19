@@ -1,7 +1,8 @@
 # Sticky Pen
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8.
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4b1d16ae-84c3-4960-ae6d-40ed0616b3e0/deploy-status)](https://app.netlify.com/sites/sticky-pen/deploys)
+[![CodeFactor](https://www.codefactor.io/repository/github/sefatanam/sticky-pen/badge)](https://www.codefactor.io/repository/github/sefatanam/sticky-pen)
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
